@@ -18,3 +18,4 @@ class Food(Turtle):
         self.goto(random_x, random_y)
 
 
+
