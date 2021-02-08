@@ -34,7 +34,7 @@ while 1 > stoppage:
         food.refresh()
         snake.extend()
         score_board.score += 1
-        if SPEED > 0.4:
+        if SPEED > 0.5:
             SPEED -= 0.05
         score_board.refresh()
 
