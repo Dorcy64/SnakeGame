@@ -21,3 +21,6 @@ Also felt the full filment of bringing a snake game to life using python.
  1) Snake Class
  2) Food Class
  3) Score Class
+
+Update 1:
+ - Included a permanent leaderboard
