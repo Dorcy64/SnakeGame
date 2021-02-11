@@ -4,10 +4,11 @@ from snake import Snake
 from food import Food
 from score import Score
 
-SPEED = 1
+SPEED = 1.3
+SIZE = 1
 
 screen = Screen()
-screen.setup(width=600, height=600)
+screen.setup(width=600*SIZE, height=600*SIZE)
 screen.bgcolor("black")
 screen.title("My Snake Game")
 screen.tracer(0)
@@ -36,16 +37,18 @@ while 1 > stoppage:
         score_board.score += 1
         if SPEED > 0.5:
             SPEED -= 0.05
-        score_board.refresh()
+        score_board.update_scoreboard()
 
-    if snake.head.xcor() > 280 or snake.head.xcor() < -300 or snake.head.ycor() > 300 or snake.head.ycor() < -280:
-        stoppage += 1
-        score_board.game_over()
+    if snake.head.xcor() > 280*SIZE or snake.head.xcor() < -300*SIZE or snake.head.ycor() > 300*SIZE or snake.head.ycor() < -280*SIZE:
+        score_board.reset()
+        snake.reset()
+        SPEED = 1.3
 
-    # Colision with Tail
+    # Collision with Tail
     for segments in snake.segments[2:]:
         if snake.head.distance(segments) < 10:
-            score_board.game_over()
-            stoppage += 1
+            score_board.reset()
+            snake.reset()
+            SPEED = 1.3
 
 screen.exitonclick()
